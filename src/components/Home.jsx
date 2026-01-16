@@ -9,17 +9,17 @@ import Footer from './Footer';
 
 const Home = () => {
     return (
-        <div className='pt-15'>
+        <div className="pt-16">
             <Navbar />
             <Hero />
-            <section className="bg-[#0f0d16] pb-14">
+            <section className="bg-[#f7f7fb] pb-14">
                 <div className="mx-auto w-full max-w-6xl px-6">
                     <div className="mb-6 flex items-end justify-between">
                         <div>
-                            <p className="text-xs uppercase tracking-[0.35em] text-white/50">Browse by</p>
-                            <h3 className="mt-2 text-2xl font-semibold text-white">Popular Categories</h3>
+                            <p className="text-xs uppercase tracking-[0.35em] text-zinc-500">Browse by</p>
+                            <h3 className="mt-2 text-2xl font-semibold text-zinc-900">Popular Categories</h3>
                         </div>
-                        <span className="hidden text-sm text-white/60 md:inline">Find what you need fast</span>
+                        <span className="hidden text-sm text-zinc-500 md:inline">Find what you need fast</span>
                     </div>
                     <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
                         {[
@@ -30,15 +30,15 @@ const Home = () => {
                         ].map((item) => (
                             <div
                                 key={item.name}
-                                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-5 text-white shadow-[0_18px_40px_rgba(0,0,0,0.35)] transition hover:-translate-y-1 hover:border-white/20"
+                                className="group relative overflow-hidden rounded-2xl border border-zinc-200 bg-white p-5 text-zinc-900 shadow-[0_18px_40px_rgba(15,23,42,0.12)] transition hover:-translate-y-1 hover:border-zinc-300"
                             >
-                                <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-white/5 blur-2xl transition group-hover:bg-white/10" />
+                                <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-[#ff7a2f]/10 blur-2xl transition group-hover:bg-[#ff7a2f]/20" />
                                 <div className="pointer-events-none absolute right-6 top-1/2 -translate-y-1/2 text-4xl">
-                                    <item.Icon className="h-10 w-10 text-white/80" aria-hidden="true" />
+                                    <item.Icon className="h-10 w-10 text-[#ff7a2f]" aria-hidden="true" />
                                 </div>
                                 <h4 className="mt-5 text-lg font-semibold pr-16">{item.name}</h4>
-                                <p className="mt-2 text-xs text-white/60 pr-16">Handpicked essentials for students</p>
-                                <div className="mt-6 flex items-center gap-2 text-xs font-semibold text-white/80">
+                                <p className="mt-2 text-xs text-zinc-500 pr-16">Handpicked essentials for students</p>
+                                <div className="mt-6 flex items-center gap-2 text-xs font-semibold text-zinc-700">
                                     Explore
                                     <span className="inline-block translate-x-0 transition group-hover:translate-x-1">→</span>
                                 </div>
@@ -47,14 +47,14 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-            <section className="bg-[#0f0d16] pb-16">
+            <section className="bg-[#f7f7fb] pb-16">
                 <div className="mx-auto w-full max-w-6xl px-6">
                     <div className="mb-6 flex items-end justify-between">
                         <div>
-                            <p className="text-xs uppercase tracking-[0.35em] text-white/50">Featured</p>
-                            <h3 className="mt-2 text-2xl font-semibold text-white">Featured Items</h3>
+                            <p className="text-xs uppercase tracking-[0.35em] text-zinc-500">Featured</p>
+                            <h3 className="mt-2 text-2xl font-semibold text-zinc-900">Featured Items</h3>
                         </div>
-                        <span className="hidden text-sm text-white/60 md:inline">Top picks from students</span>
+                        <span className="hidden text-sm text-zinc-500 md:inline">Top picks from students</span>
                     </div>
                     <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
                         {[
@@ -145,11 +145,11 @@ const Home = () => {
                         ].map((item) => (
                             <div
                                 key={item.name}
-                                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-4 text-white shadow-[0_18px_40px_rgba(0,0,0,0.35)] transition hover:-translate-y-1 hover:border-white/20"
+                                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white p-4 text-zinc-900 shadow-[0_18px_40px_rgba(15,23,42,0.12)] transition hover:-translate-y-1 hover:border-zinc-300"
                             >
                                 <div className="relative -mx-4 -mt-4 overflow-hidden rounded-t-2xl">
                                     {item.badge && (
-                                        <span className="absolute left-3 top-3 rounded-full bg-black/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/80">
+                                        <span className="absolute left-3 top-3 rounded-full bg-[#ff7a2f] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
                                             {item.badge}
                                         </span>
                                     )}
@@ -164,12 +164,12 @@ const Home = () => {
                                         {item.name}
                                     </h4>
                                     {item.category && (
-                                        <span className="shrink-0 rounded-full border border-white/10 bg-white/10 px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-white/70">
+                                        <span className="shrink-0 rounded-full border border-zinc-200 bg-zinc-100 px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-zinc-600">
                                             {item.category}
                                         </span>
                                     )}
                                 </div>
-                                <p className="mt-2 text-xs text-white/60 line-clamp-2">
+                                <p className="mt-2 text-xs text-zinc-500 line-clamp-2">
                                     {item.description}
                                 </p>
                                 <div className="mt-auto flex items-center justify-between gap-3 pt-4">
@@ -186,9 +186,9 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-            <section className="bg-[#0f0d16] pb-16">
+            <section className="bg-[#f7f7fb] pb-16">
                 <div className="mx-auto w-full max-w-6xl px-6">
-                    <h3 className="mb-8 text-2xl font-semibold text-white">How CampusMart Works</h3>
+                    <h3 className="mb-8 text-2xl font-semibold text-zinc-900">How CampusMart Works</h3>
                     <div className="grid gap-6 md:grid-cols-3">
                         {[
                             {
@@ -207,25 +207,25 @@ const Home = () => {
                                 Icon: MdOutlineAddBox,
                             },
                         ].map((item) => (
-                            <div key={item.title} className="text-white">
+                            <div key={item.title} className="text-zinc-900">
                                 <div className="text-[#ff7a2f]">
                                     <item.Icon className="h-7 w-7" aria-hidden="true" />
                                 </div>
                                 <h4 className="mt-4 text-lg font-semibold">{item.title}</h4>
-                                <p className="mt-3 text-sm text-white/65">{item.description}</p>
+                                <p className="mt-3 text-sm text-zinc-600">{item.description}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
-            <section className="bg-[#0f0d16] pb-16">
+            <section className="bg-[#f7f7fb] pb-16">
                 <div className="mx-auto w-full max-w-6xl px-6">
                     <div className="mb-8 flex items-end justify-between">
                         <div>
-                            <p className="text-xs uppercase tracking-[0.35em] text-white/50">Why Choose</p>
-                            <h3 className="mt-2 text-2xl font-semibold text-white">Why Choose CampusMart</h3>
+                            <p className="text-xs uppercase tracking-[0.35em] text-zinc-500">Why Choose</p>
+                            <h3 className="mt-2 text-2xl font-semibold text-zinc-900">Why Choose CampusMart</h3>
                         </div>
-                        <span className="hidden text-sm text-white/60 md:inline">Built for student communities</span>
+                        <span className="hidden text-sm text-zinc-500 md:inline">Built for student communities</span>
                     </div>
                     <div className="grid gap-6 md:grid-cols-3">
                         {[
@@ -244,21 +244,21 @@ const Home = () => {
                         ].map((item) => (
                             <div
                                 key={item.title}
-                                className="rounded-2xl border border-white/10 bg-white/[0.05] p-6 text-white shadow-[0_18px_40px_rgba(0,0,0,0.35)]"
+                                className="rounded-2xl border border-zinc-200 bg-white p-6 text-zinc-900 shadow-[0_18px_40px_rgba(15,23,42,0.12)]"
                             >
                                 <h4 className="text-lg font-semibold">{item.title}</h4>
-                                <p className="mt-3 text-sm text-white/70">{item.description}</p>
+                                <p className="mt-3 text-sm text-zinc-600">{item.description}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
-            <section className="bg-[#0f0d16] py-12">
+            <section className="bg-[#f7f7fb] py-12">
                 <div className="mx-auto w-full max-w-6xl px-6">
                     <div className="mb-6 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
                         <div>
-                            <h3 className="text-2xl font-semibold text-white">New Arrivals</h3>
-                            <p className="mt-2 text-sm text-white/60">Recently added campus essentials</p>
+                            <h3 className="text-2xl font-semibold text-zinc-900">New Arrivals</h3>
+                            <p className="mt-2 text-sm text-zinc-500">Recently added campus essentials</p>
                         </div>
                         <a className="text-sm font-semibold text-[#ff7a2f] transition hover:text-[#ff6a00]" href="#">
                             View All
@@ -323,7 +323,7 @@ const Home = () => {
                         ].map((item) => (
                             <div
                                 key={item.name}
-                                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] shadow-[0_18px_40px_rgba(0,0,0,0.35)] transition hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_24px_48px_rgba(0,0,0,0.45)]"
+                                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-[0_14px_30px_rgba(15,23,42,0.12)] transition hover:-translate-y-1 hover:border-zinc-300 hover:shadow-[0_20px_40px_rgba(15,23,42,0.18)]"
                             >
                                 <div className="relative">
                                     <span className="absolute left-3 top-3 rounded-full bg-[#ff7a2f] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
@@ -336,8 +336,8 @@ const Home = () => {
                                     />
                                 </div>
                                 <div className="flex h-full flex-col p-4">
-                                    <h4 className="text-sm font-semibold text-white line-clamp-1">{item.name}</h4>
-                                    <p className="mt-2 text-xs text-white/60 line-clamp-2">{item.description}</p>
+                                    <h4 className="text-sm font-semibold text-zinc-900 line-clamp-1">{item.name}</h4>
+                                    <p className="mt-2 text-xs text-zinc-500 line-clamp-2">{item.description}</p>
                                     <div className="mt-auto flex items-center justify-between pt-4">
                                         <span className="text-base font-semibold text-[#ff7a2f]">{item.price}</span>
                                         <div className="flex items-center gap-1 text-xs text-zinc-500">

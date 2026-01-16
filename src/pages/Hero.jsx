@@ -46,9 +46,9 @@ const Hero = () => {
     }, []);
 
     return (
-        <section className="bg-[#0f0d16]">
+        <section className="bg-[#f7f7fb]">
             <div className="mx-auto w-full max-w-6xl px-6 pb-8 pt-4">
-                <div className="relative h-[240px] overflow-hidden rounded-2xl border border-white/10 shadow-[0_24px_50px_rgba(0,0,0,0.5)] md:h-[320px]">
+                <div className="relative h-[240px] overflow-hidden rounded-2xl border border-zinc-200 shadow-[0_24px_40px_rgba(15,23,42,0.16)] md:h-[320px]">
                     {slides.map((slide, index) => {
                         const isActive = index === activeIndex;
                         return (
@@ -62,9 +62,9 @@ const Hero = () => {
                                     className="absolute inset-0 bg-cover bg-center"
                                     style={{ backgroundImage: `url(${slide.image})` }}
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
+                                <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent" />
                                 <div className="relative z-10 flex h-full flex-col justify-center gap-4 px-6 py-6 text-white md:max-w-xl md:px-10">
-                                    <span className="w-fit rounded-full border border-white/20 bg-white/10 px-4 py-1 text-xs uppercase tracking-[0.3em] text-white/80">
+                                    <span className="w-fit rounded-full border border-white/30 bg-white/15 px-4 py-1 text-xs uppercase tracking-[0.3em] text-white/90">
                                         {slide.badge}
                                     </span>
                                     <h2 className="text-2xl font-semibold leading-tight md:text-4xl">
