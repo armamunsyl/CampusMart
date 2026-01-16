@@ -12,7 +12,7 @@ const Navbar = () => {
         }`;
 
     return (
-        <nav className="w-full bg-gradient-to-r from-[#1c1a26] via-[#191723] to-[#14111b] text-zinc-100 shadow-[0_2px_10px_rgba(0,0,0,0.35)]">
+        <nav className="fixed left-0 right-0 top-0 z-50 w-full bg-gradient-to-r from-[#1c1a26] via-[#191723] to-[#14111b] text-zinc-100 shadow-[0_2px_10px_rgba(0,0,0,0.35)]">
             <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
                 <div className="text-2xl font-semibold tracking-wide text-[#ff7a2f] drop-shadow-[0_1px_0_rgba(0,0,0,0.6)]">
                     CampusMart

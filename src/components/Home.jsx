@@ -9,7 +9,7 @@ import Footer from './Footer';
 
 const Home = () => {
     return (
-        <div>
+        <div className='pt-15'>
             <Navbar />
             <Hero />
             <section className="bg-[#0f0d16] pb-14">
