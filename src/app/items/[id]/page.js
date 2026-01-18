@@ -1,6 +1,22 @@
+import { notFound } from "next/navigation";
 import Footer from "../../../components/Footer";
+import itemsData from "../../../data/items.json";
 
-export default function ItemDetailsPage() {
+export default async function ItemDetailsPage({ params }) {
+  const { id } = await params;
+  const rawId = decodeURIComponent(id || "");
+  const normalizedId = rawId.trim().replace(/\/$/, "");
+  const item = itemsData.find((entry) => String(entry.id) === normalizedId);
+
+  if (!item) {
+    notFound();
+  }
+
+  const galleryImages = Array.from({ length: 3 }).map(() => item.image);
+  const rating = item.rating || 4.5;
+  const reviews = item.reviews || 0;
+  const discountLabel = item.discount || "Limited";
+
   return (
     <div className="min-h-screen bg-[#f7f7fb]">
       <main className="mx-auto w-full max-w-5xl px-6 pb-14 pt-24">
@@ -8,25 +24,21 @@ export default function ItemDetailsPage() {
           <div>
             <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-[0_18px_30px_rgba(15,23,42,0.12)]">
               <img
-                src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1200&q=80"
-                alt="Product"
+                src={item.image}
+                alt={item.name}
                 className="h-full w-full object-cover"
               />
             </div>
             <div className="mt-5 grid grid-cols-3 gap-3">
-              {[
-                "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80",
-                "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80",
-                "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80",
-              ].map((src, index) => (
+              {galleryImages.map((src, index) => (
                 <button
-                  key={src}
+                  key={`${item.id}-thumb-${index}`}
                   type="button"
                   className={`aspect-square overflow-hidden rounded-xl border ${
                     index === 0 ? "border-[#ff7a2f]" : "border-zinc-200"
                   } bg-white shadow-sm`}
                 >
-                  <img src={src} alt="Thumbnail" className="h-full w-full object-cover" />
+                  <img src={src} alt={`${item.name} thumbnail`} className="h-full w-full object-cover" />
                 </button>
               ))}
             </div>
@@ -38,24 +50,25 @@ export default function ItemDetailsPage() {
               </span>
               <span className="text-sm text-zinc-500">Item ID: CM-1042</span>
             </div>
-            <h1 className="mt-4 text-2xl font-semibold text-zinc-900">MacBook Air M1</h1>
+            <h1 className="mt-4 text-2xl font-semibold text-zinc-900">{item.name}</h1>
             <p className="mt-3 text-sm text-zinc-600">
-              Lightweight laptop with long battery life, perfect for assignments, coding,
-              and content creation.
+              Trusted campus pick with verified listing details and fast campus meetup options.
             </p>
             <div className="mt-4 flex items-center gap-3">
-              <span className="text-3xl font-semibold text-[#ff7a2f]">৳79,000</span>
+              <span className="text-3xl font-semibold text-[#ff7a2f]">{item.price}</span>
               <span className="rounded-full bg-emerald-100 px-3 py-1 text-sm font-semibold text-emerald-700">
-                15% off
+                {discountLabel} off
               </span>
             </div>
             <div className="mt-3 flex items-center gap-2 text-sm text-zinc-500">
               <div className="flex items-center gap-0.5 text-[#ffb54d]">
                 {Array.from({ length: 5 }).map((_, index) => (
-                  <span key={`star-${index}`}>★</span>
+                  <span key={`star-${index}`} className={index < Math.round(rating) ? "" : "text-zinc-200"}>
+                    ★
+                  </span>
                 ))}
               </div>
-              <span>(128 reviews)</span>
+              <span>({reviews} reviews)</span>
               <span className="h-1 w-1 rounded-full bg-zinc-300" />
               <span>In stock</span>
             </div>

@@ -5,6 +5,54 @@ import { MdOutlineAddBox } from 'react-icons/md';
 import { TbSearch } from 'react-icons/tb';
 import Hero from '../pages/Hero';
 import Footer from './Footer';
+import itemsData from '../data/items.json';
+
+const FEATURED_DESCRIPTIONS = [
+    'Lightweight laptop with long battery life.',
+    'Block distractions and focus in lectures.',
+    'Exam-ready calculator with crisp display.',
+    'Keep notes, pens, and cards tidy.',
+    'Water-resistant backpack for daily campus use.',
+    'Connect monitors, storage, and peripherals.',
+    'Warm light with adjustable brightness.',
+    'Smooth tracking with silent clicks.',
+    'Set of 5 ruled notebooks for classes.',
+    'Fast storage for projects and backups.',
+];
+
+const FEATURED_BADGES = [
+    'Featured',
+    'New',
+    undefined,
+    undefined,
+    'Hot',
+    undefined,
+    undefined,
+    undefined,
+    'Deal',
+    undefined,
+];
+
+const NEW_ARRIVAL_DESCRIPTIONS = [
+    'Compact ultrabook for everyday study tasks.',
+    'Smooth writing pens with refill pack.',
+    'Clear sound for studying in noisy spaces.',
+    'Ergonomic chair with breathable support.',
+    'Print notes and assignments on the go.',
+    'Warm light with adjustable brightness.',
+];
+
+const featuredItems = itemsData.slice(0, 10).map((item, index) => ({
+    ...item,
+    description: FEATURED_DESCRIPTIONS[index] || 'Campus favorite for daily use.',
+    badge: FEATURED_BADGES[index],
+    category: item.category,
+}));
+
+const newArrivals = itemsData.slice(10, 16).map((item, index) => ({
+    ...item,
+    description: NEW_ARRIVAL_DESCRIPTIONS[index] || 'Fresh campus pick for the week.',
+}));
 
 const Home = () => {
     return (
@@ -57,92 +105,7 @@ const Home = () => {
                         <span className="hidden text-sm text-zinc-500 md:inline">Top picks from students</span>
                     </div>
                     <div className="grid grid-cols-2 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-                        {[
-                            {
-                                name: 'MacBook Air M1',
-                                description: 'Lightweight laptop with long battery life.',
-                                price: '$799',
-                                image:
-                                    'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80',
-                                badge: 'Featured',
-                                category: 'Tech',
-                            },
-                            {
-                                name: 'Noise Cancelling Headphones',
-                                description: 'Block distractions and focus in lectures.',
-                                price: '$199',
-                                image:
-                                    'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80',
-                                badge: 'New',
-                                category: 'Audio',
-                            },
-                            {
-                                name: 'Graphing Calculator',
-                                description: 'Exam-ready calculator with crisp display.',
-                                price: '$129',
-                                image:
-                                    'https://images.unsplash.com/photo-1506459225024-1428097a7e18?auto=format&fit=crop&w=800&q=80',
-                                category: 'Tools',
-                            },
-                            {
-                                name: 'Desk Organizer Set',
-                                description: 'Keep notes, pens, and cards tidy.',
-                                price: '$29',
-                                image:
-                                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=800&q=80',
-                                category: 'Stationery',
-                            },
-                            {
-                                name: 'Backpack Pro 25L',
-                                description: 'Water-resistant backpack for daily campus use.',
-                                price: '$69',
-                                image:
-                                    'https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=800&q=80',
-                                badge: 'Hot',
-                                category: 'Bags',
-                            },
-                            {
-                                name: 'USB-C Dock',
-                                description: 'Connect monitors, storage, and peripherals.',
-                                price: '$59',
-                                image:
-                                    'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80',
-                                category: 'Accessories',
-                            },
-                            {
-                                name: 'Study Lamp',
-                                description: 'Warm light with adjustable brightness.',
-                                price: '$24',
-                                image:
-                                    'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=80',
-                                category: 'Dorm',
-                            },
-                            {
-                                name: 'Wireless Mouse',
-                                description: 'Smooth tracking with silent clicks.',
-                                price: '$19',
-                                image:
-                                    'https://images.unsplash.com/photo-1519885277449-12eee5564d0e?auto=format&fit=crop&w=800&q=80',
-                                category: 'Tech',
-                            },
-                            {
-                                name: 'Notebook Bundle',
-                                description: 'Set of 5 ruled notebooks for classes.',
-                                price: '$12',
-                                image:
-                                    'https://images.unsplash.com/photo-1519337265831-281ec6cc8514?auto=format&fit=crop&w=800&q=80',
-                                badge: 'Deal',
-                                category: 'Notes',
-                            },
-                            {
-                                name: 'Portable SSD 1TB',
-                                description: 'Fast storage for projects and backups.',
-                                price: '$109',
-                                image:
-                                    'https://images.unsplash.com/photo-1508873699372-7ae8f25b6d6a?auto=format&fit=crop&w=800&q=80',
-                                category: 'Storage',
-                            },
-                        ].map((item) => (
+                        {featuredItems.map((item) => (
                             <div
                                 key={item.name}
                                 className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white p-4 text-zinc-900 shadow-[0_18px_40px_rgba(15,23,42,0.12)] transition hover:-translate-y-1 hover:border-zinc-300"
@@ -265,62 +228,7 @@ const Home = () => {
                         </a>
                     </div>
                     <div className="grid grid-cols-2 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                        {[
-                            {
-                                name: 'Dell XPS 13',
-                                description: 'Compact ultrabook for everyday study tasks.',
-                                price: '$899',
-                                rating: 4.8,
-                                reviews: 55,
-                                image:
-                                    'https://images.unsplash.com/photo-1484788984921-03950022c9ef?auto=format&fit=crop&w=900&q=80',
-                            },
-                            {
-                                name: 'Smart Pen Set',
-                                description: 'Smooth writing pens with refill pack.',
-                                price: '$18',
-                                rating: 4.6,
-                                reviews: 41,
-                                image:
-                                    'https://images.unsplash.com/photo-1457694716743-eb419114c894?auto=format&fit=crop&w=900&q=80',
-                            },
-                            {
-                                name: 'Noise Isolation Earbuds',
-                                description: 'Clear sound for studying in noisy spaces.',
-                                price: '$49',
-                                rating: 4.7,
-                                reviews: 63,
-                                image:
-                                    'https://images.unsplash.com/photo-1518441983039-8b2cb24de996?auto=format&fit=crop&w=900&q=80',
-                            },
-                            {
-                                name: 'Study Desk Chair',
-                                description: 'Ergonomic chair with breathable back support.',
-                                price: '$129',
-                                rating: 4.5,
-                                reviews: 28,
-                                image:
-                                    'https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?auto=format&fit=crop&w=900&q=80',
-                            },
-                            {
-                                name: 'Portable Printer',
-                                description: 'Print notes and assignments on the go.',
-                                price: '$79',
-                                rating: 4.4,
-                                reviews: 19,
-                                image:
-                                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80',
-                            },
-                            {
-                                name: 'USB Study Light',
-                                description: 'Warm light with adjustable brightness.',
-                                price: '$22',
-                                rating: 4.9,
-                                reviews: 72,
-                                image:
-                                    'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=900&q=80',
-                            },
-                        ].map((item) => (
+                        {newArrivals.map((item) => (
                             <div
                                 key={item.name}
                                 className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-[0_14px_30px_rgba(15,23,42,0.12)] transition hover:-translate-y-1 hover:border-zinc-300 hover:shadow-[0_20px_40px_rgba(15,23,42,0.18)]"
