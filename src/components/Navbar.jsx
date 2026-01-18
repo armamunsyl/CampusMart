@@ -49,18 +49,27 @@ const Navbar = () => {
     }, [theme]);
 
     useEffect(() => {
+        let isActive = true;
         const checkAuth = async () => {
             try {
                 const data = await getAuthStatus();
+                if (!isActive) return;
                 setIsLoggedIn(Boolean(data.loggedIn));
                 setUserEmail(data.email || '');
             } finally {
-                setAuthChecked(true);
+                if (isActive) {
+                    setAuthChecked(true);
+                    setAvatarOpen(false);
+                }
             }
         };
 
         checkAuth();
-    }, []);
+
+        return () => {
+            isActive = false;
+        };
+    }, [pathname]);
 
     return (
         <nav className="fixed left-0 right-0 top-0 z-50 w-full bg-gradient-to-r from-[#1c1a26] via-[#191723] to-[#14111b] text-zinc-100 shadow-[0_2px_10px_rgba(0,0,0,0.35)]">
