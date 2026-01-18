@@ -3,14 +3,12 @@ import { FaCalculator, FaHeadphones, FaLaptop, FaPenNib, FaStar } from 'react-ic
 import { FiEye } from 'react-icons/fi';
 import { MdOutlineAddBox } from 'react-icons/md';
 import { TbSearch } from 'react-icons/tb';
-import Navbar from './Navbar';
 import Hero from '../pages/Hero';
 import Footer from './Footer';
 
 const Home = () => {
     return (
         <div className="pt-16">
-            <Navbar />
             <Hero />
             <section className="bg-[#f7f7fb] pb-14">
                 <div className="mx-auto w-full max-w-6xl px-6">
@@ -21,7 +19,7 @@ const Home = () => {
                         </div>
                         <span className="hidden text-sm text-zinc-500 md:inline">Find what you need fast</span>
                     </div>
-                    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                    <div className="grid grid-cols-2 gap-5 sm:grid-cols-2 lg:grid-cols-4">
                         {[
                             { name: 'Laptops', Icon: FaLaptop },
                             { name: 'Accessories', Icon: FaHeadphones },
@@ -33,12 +31,14 @@ const Home = () => {
                                 className="group relative overflow-hidden rounded-2xl border border-zinc-200 bg-white p-5 text-zinc-900 shadow-[0_18px_40px_rgba(15,23,42,0.12)] transition hover:-translate-y-1 hover:border-zinc-300"
                             >
                                 <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-[#ff7a2f]/10 blur-2xl transition group-hover:bg-[#ff7a2f]/20" />
-                                <div className="pointer-events-none absolute right-6 top-1/2 -translate-y-1/2 text-4xl">
+                                <div className="text-4xl">
                                     <item.Icon className="h-10 w-10 text-[#ff7a2f]" aria-hidden="true" />
                                 </div>
-                                <h4 className="mt-5 text-lg font-semibold pr-16">{item.name}</h4>
-                                <p className="mt-2 text-xs text-zinc-500 pr-16">Handpicked essentials for students</p>
-                                <div className="mt-6 flex items-center gap-2 text-xs font-semibold text-zinc-700">
+                                <h4 className="mt-4 text-sm font-semibold">{item.name}</h4>
+                                <p className="mt-2 hidden text-[11px] text-zinc-500 pr-16 sm:block">
+                                    Handpicked essentials for students
+                                </p>
+                                <div className="mt-5 flex items-center gap-2 text-[11px] font-semibold text-zinc-700">
                                     Explore
                                     <span className="inline-block translate-x-0 transition group-hover:translate-x-1">→</span>
                                 </div>
@@ -56,7 +56,7 @@ const Home = () => {
                         </div>
                         <span className="hidden text-sm text-zinc-500 md:inline">Top picks from students</span>
                     </div>
-                    <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+                    <div className="grid grid-cols-2 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
                         {[
                             {
                                 name: 'MacBook Air M1',
@@ -160,22 +160,22 @@ const Home = () => {
                                     />
                                 </div>
                                 <div className="mt-4 flex items-start justify-between gap-2">
-                                    <h4 className="text-sm font-semibold leading-snug line-clamp-2">
+                                    <h4 className="text-xs font-semibold leading-snug line-clamp-2">
                                         {item.name}
                                     </h4>
                                     {item.category && (
-                                        <span className="shrink-0 rounded-full border border-zinc-200 bg-zinc-100 px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-zinc-600">
+                                        <span className="hidden shrink-0 rounded-full border border-zinc-200 bg-zinc-100 px-2 py-1 text-[9px] uppercase tracking-[0.2em] text-zinc-600 sm:inline-flex">
                                             {item.category}
                                         </span>
                                     )}
                                 </div>
-                                <p className="mt-2 text-xs text-zinc-500 line-clamp-2">
+                                <p className="mt-2 text-[11px] text-zinc-500 line-clamp-2">
                                     {item.description}
                                 </p>
                                 <div className="mt-auto flex items-center justify-between gap-3 pt-4">
-                                    <span className="text-lg font-semibold text-[#ff7a2f]">{item.price}</span>
+                                    <span className="text-sm font-semibold text-[#ff7a2f]">{item.price}</span>
                                     <button
-                                        className="rounded-full bg-gradient-to-r from-[#ff8a3d] to-[#ff6a00] px-4 py-2 text-xs font-semibold text-white shadow-[0_12px_25px_rgba(0,0,0,0.35)] transition hover:brightness-110"
+                                        className="rounded-full bg-gradient-to-r from-[#ff8a3d] to-[#ff6a00] px-3 py-1.5 text-[11px] font-semibold text-white transition hover:brightness-110 whitespace-nowrap"
                                         type="button"
                                     >
                                         View Details
@@ -189,7 +189,7 @@ const Home = () => {
             <section className="bg-[#f7f7fb] pb-16">
                 <div className="mx-auto w-full max-w-6xl px-6">
                     <h3 className="mb-8 text-2xl font-semibold text-zinc-900">How CampusMart Works</h3>
-                    <div className="grid gap-6 md:grid-cols-3">
+                    <div className="grid grid-cols-2 gap-6 md:grid-cols-3">
                         {[
                             {
                                 title: 'Browse Items',
@@ -227,7 +227,7 @@ const Home = () => {
                         </div>
                         <span className="hidden text-sm text-zinc-500 md:inline">Built for student communities</span>
                     </div>
-                    <div className="grid gap-6 md:grid-cols-3">
+                    <div className="grid grid-cols-2 gap-6 md:grid-cols-3">
                         {[
                             {
                                 title: 'Verified Student Network',
@@ -264,7 +264,7 @@ const Home = () => {
                             View All
                         </a>
                     </div>
-                    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    <div className="grid grid-cols-2 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                         {[
                             {
                                 name: 'Dell XPS 13',
@@ -336,11 +336,13 @@ const Home = () => {
                                     />
                                 </div>
                                 <div className="flex h-full flex-col p-4">
-                                    <h4 className="text-sm font-semibold text-zinc-900 line-clamp-1">{item.name}</h4>
-                                    <p className="mt-2 text-xs text-zinc-500 line-clamp-2">{item.description}</p>
+                                    <h4 className="text-xs font-semibold text-zinc-900 line-clamp-1">{item.name}</h4>
+                                    <p className="mt-2 text-[11px] text-zinc-500 line-clamp-2">
+                                        {item.description}
+                                    </p>
                                     <div className="mt-auto flex items-center justify-between pt-4">
-                                        <span className="text-base font-semibold text-[#ff7a2f]">{item.price}</span>
-                                        <div className="flex items-center gap-1 text-xs text-zinc-500">
+                                        <span className="text-sm font-semibold text-[#ff7a2f]">{item.price}</span>
+                                        <div className="flex items-center gap-1 text-[11px] text-zinc-500">
                                             <div className="flex items-center gap-0.5 text-[#ffb54d]">
                                                 {Array.from({ length: 5 }).map((_, index) => (
                                                     <FaStar key={`${item.name}-star-${index}`} className="h-3 w-3" />

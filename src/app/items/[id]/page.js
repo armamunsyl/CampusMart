@@ -1,10 +1,8 @@
-import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 
 export default function ItemDetailsPage() {
   return (
     <div className="min-h-screen bg-[#f7f7fb]">
-      <Navbar />
       <main className="mx-auto w-full max-w-5xl px-6 pb-14 pt-24">
         <div className="grid gap-6 lg:grid-cols-[1.02fr_0.98fr]">
           <div>
